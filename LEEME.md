@@ -91,8 +91,8 @@ usa `--salida` cuando generes varias personas.
 
 ### Límite de ancho
 
-La columna del nombre mide 262 px: entran unos 17 caracteres antes de saltar de
-línea. Para nombres más largos, baja el `font-size:21px` de esa línea en
+La columna del nombre mide 290 px: entran unos 17 caracteres antes de saltar de
+línea. Para nombres más largos, baja el `font-size:24px` de esa línea en
 `_plantilla.src.html`.
 
 ## Detalles tomados del diseño original
@@ -100,6 +100,6 @@ línea. Para nombres más largos, baja el `font-size:21px` de esa línea en
 - Fondo azul `#3f6daf`
 - Barra inferior en cuatro tramos iguales:
   rojo `#ce4040`, morado `#89297c`, naranja `#e59535`, verde `#9cbe43`
-- Tipografía monoespaciada: `'Roboto Mono', Menlo, Consolas, 'Courier New', monospace`.
+- Tipografía monoespaciada: `'Source Code Pro', Menlo, Consolas, 'Courier New', monospace`.
   Los clientes de correo ignoran las fuentes web, así que cada sistema usa la
   monoespaciada que tenga instalada; el carácter del diseño se conserva.
