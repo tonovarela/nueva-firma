@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Generador de firma · Litoprocess</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --azul: #3f6daf;
+    --navy: #1f3b64;
+    --gris: #6b7684;
+    --texto: #33475b;
+    --borde: #dde3ea;
+    --fondo: #f4f6f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+  }
+  header {
+    padding: 20px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--borde);
+  }
+  header h1 { margin: 0; font-size: 18px; color: var(--navy); }
+  header p { margin: 4px 0 0; font-size: 13px; color: var(--gris); }
+
+  main {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 24px;
+    padding: 24px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 800px) {
+    main { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gris);
+    margin: 12px 0 4px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--texto);
+    background: #fff;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--azul);
+  }
+
+  .acciones {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  button {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  #btn-copiar {
+    background: var(--azul);
+    color: #fff;
+  }
+  #btn-copiar:hover { background: var(--navy); }
+
+  #estado {
+    min-height: 16px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .preview-wrap h2 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: var(--gris);
+    font-weight: 600;
+  }
+  .preview-card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  #preview-frame {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: 120px;
+    border: 0;
+    background: #fff;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Generador de firma · Litoprocess</h1>
+  <p>Elige o edita los datos, revisa el preview y copia.
+  </p>
+</header>
+
+<main>
+  <section class="panel">
+    <label for="campo-nombre">Nombre</label>
+    <input id="campo-nombre" type="text" value="Carlos Charabati">
+
+    <label for="campo-puesto">Puesto</label>
+    <input id="campo-puesto" type="text" value="Director">
+
+    <label for="campo-correo">Correo</label>
+    <input id="campo-correo" type="email" value="carlos@litoprocess.com">
+
+    <label for="campo-ext">Extensión</label>
+    <input id="campo-ext" type="text" value="106">
+
+    <div class="acciones">
+      <button id="btn-copiar">Copiar firma (para pegar)</button>
+      <div id="estado"></div>
+    </div>
+  </section>
+
+  <section class="preview-wrap">
+    <h2>Preview</h2>
+    <div class="preview-card">
+      <iframe id="preview-frame" title="Vista previa de la firma" scrolling="no"></iframe>
+    </div>
+  </section>
+</main>
+
+<script src="plantilla.js"></script>
+<script src="img-data.js"></script>
+<script src="generador.js"></script>
+</body>
+</html>

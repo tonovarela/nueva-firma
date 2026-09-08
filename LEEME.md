@@ -3,101 +3,114 @@
 Plantilla HTML de 640 px de ancho, maquetada con tablas y estilos en línea
 (el único formato que respetan Gmail, Outlook, Apple Mail y Thunderbird).
 
+Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
+`generador.html` con doble clic y genera la firma ahí mismo.
+
 ## Archivos
 
 | Archivo | Para qué sirve |
 |---|---|
-| `firma-litoprocess.html` | **La firma final.** Las imágenes apuntan a una URL pública. |
-| `firma-preview.html` | Vista previa autocontenida (imágenes en base64). Ábrela en el navegador para revisarla o para copiar y pegar directo. |
-| `img/` | Las 5 imágenes que hay que subir al servidor. |
-| `_plantilla.src.html` | Fuente única con el marcador `__IMG__`. |
-| `_build.py` | Genera los HTML con los datos de cada persona. Ver Paso 3. |
+| `generador.html` | **La herramienta.** Ábrela con doble clic: escribe los datos de la persona, ve el preview y copia. |
+| `generador.js` | Lógica de generación (equivalente al viejo `_build.py`, ahora en JS de navegador). También aquí viven los datos fijos de empresa (`EMPRESA`). |
+| `plantilla.js` | El diseño de la firma (tabla HTML con marcadores `{{NOMBRE}}`, etc.). Editar aquí para cambios de layout/color. |
+| `img-data.js` | Las 5 imágenes ya convertidas a base64, para que la firma copiada funcione sin depender de ningún servidor. |
+| `img/` | Las imágenes originales — fuente de `img-data.js` y las que hay que subir al servidor público. |
 
-## Paso 1 · Subir las imágenes
+## Paso 1 · Generar y copiar una firma
 
-Sube la carpeta `img/` a un lugar público y permanente, por ejemplo
-`https://www.litoprocess.com/firma/img/`. Los correos ya enviados seguirán
-pidiendo esas URLs durante años, así que no las muevas ni las renombres.
+1. Abre `generador.html` en el navegador (doble clic al archivo).
+2. Llena Nombre, Puesto, Correo y Extensión. Los datos de empresa (teléfono,
+   dirección, sitio) son fijos — salen de `EMPRESA` en `generador.js`, no se
+   editan por persona.
+3. Revisa el preview.
+4. Botón **"Copiar firma (para pegar)"** — copia la firma lista, con las
+   imágenes incrustadas en base64 (no depende de ningún servidor).
 
-Si la ruta final es distinta, pásala con `--img-base` (ver Paso 3).
+Si el copiado automático falla (navegador viejo o permisos bloqueados), el
+mensaje de estado te avisa: selecciona el preview a mano y copia con
+Ctrl/Cmd+C.
 
-| Imagen | Tamaño real | Se muestra a |
-|---|---|---|
-| `lito-inferior.png` | 1280 × 171 | 640 × 86 (retina 2x) |
-| `icon-mail.png` `icon-tel.png` `icon-mapa.png` `icon-web.png` | 56 × 56 | 14 × 14 |
+## Paso 2 · Instalar la firma copiada
 
-## Paso 2 · Instalar la firma
-
-- **Gmail / Google Workspace**: abre `firma-preview.html` en el navegador,
-  selecciona la firma completa, cópiala y pégala en
-  Configuración → General → Firma. Gmail no acepta pegar código HTML.
-- **Outlook (escritorio)**: Archivo → Opciones → Correo → Firmas. Mismo
-  procedimiento de copiar y pegar desde el navegador.
+- **Gmail / Google Workspace**: Configuración → General → Firma → pega.
+- **Outlook (escritorio)**: Archivo → Opciones → Correo → Firmas → pega.
 - **Apple Mail**: Ajustes → Firmas, pega y **desmarca**
   "Usar siempre el tipo de letra de mis mensajes".
-- **Herramientas corporativas** (Exclaimer, CodeTwo, plantillas de Workspace):
-  pega el contenido de `firma-litoprocess.html` tal cual.
 
-## Paso 3 · Personalizar por persona
+## Paso 3 · Cambiar datos de empresa
 
-Nunca edites `_plantilla.src.html` para cambiar datos: es la maqueta base y
-todos los campos se pasan por línea de comandos.
+No hay archivo de datos por persona: cada firma se escribe directo en el
+formulario. Lo único fijo es la empresa, en la constante `EMPRESA` al inicio
+de `generador.js`:
 
-```bash
-# Firma por defecto (Carlos Charabati)
-python3 _build.py
-
-# Otra persona
-python3 _build.py \
-  --nombre "Ana Robles" \
-  --puesto "Gerente Comercial" \
-  --correo ana@litoprocess.com \
-  --ext 118 \
-  --salida firma-ana
+```js
+const EMPRESA = {
+  telefono: "(55) 2122 5600",
+  direccion1: "Calz. San Francisco Cuautlalpan 102-A,",
+  direccion2: "53569, Naucalpan Edo. de México",
+  sitio: "www.litoprocess.com",
+  lada_pais: "+52",
+  img_base: "https://www.litoprocess.com/firma/img/",
+};
 ```
 
-Genera `firma-ana.html` y `firma-ana-preview.html`. Sin `--salida` los archivos
-se llaman `firma-litoprocess*.html` y se sobrescriben en cada corrida, así que
-usa `--salida` cuando generes varias personas.
+Si cambia el teléfono, dirección o sitio de la empresa, edita esto una vez y
+aplica a todas las firmas que generes después.
 
-### Todos los parámetros
+### Si cambias una imagen
 
-| Parámetro | Para qué | Por defecto |
-|---|---|---|
-| `--nombre` | Nombre completo. Se pasa a mayúsculas automáticamente | Carlos Charabati |
-| `--puesto` | Cargo | Director |
-| `--correo` | Texto visible **y** enlace `mailto:` | carlos@litoprocess.com |
-| `--ext` | Extensión. Pasa `--ext ""` para omitirla | 106 |
-| `--telefono` | Conmutador | (55) 2122 5600 |
-| `--direccion1` / `--direccion2` | Las dos líneas de la dirección | Calz. San Francisco… |
-| `--sitio` | Sitio web visible | www.litoprocess.com |
-| `--img-base` | URL pública de la carpeta `img/` | https://www.litoprocess.com/firma/img/ |
-| `--lada-pais` | Prefijo del enlace `tel:` | +52 |
-| `--tel-href` | Enlace `tel:` exacto, si no quieres que se calcule | *(calculado)* |
-| `--sitio-href` | URL destino, si difiere del texto visible | *(https:// + sitio)* |
-| `--salida` | Nombre base de los archivos generados | firma-litoprocess |
+`img-data.js` es una copia en base64 de `img/*.png`, generada una sola vez.
+Si reemplazas alguna imagen, regenera ese archivo desde la terminal (usa
+`base64`, viene instalado en macOS/Linux, no hace falta ningún lenguaje de
+programación extra):
 
-`python3 _build.py --help` lista lo mismo desde la terminal.
+```bash
+cd img
+for f in *.png; do
+  printf '  "%s": "data:image/png;base64,%s",\n' "$f" "$(base64 -i "$f" | tr -d '\n')"
+done
+```
 
-### Lo que el script hace por ti
+Pega el resultado dentro del objeto `IMG_DATA` en `img-data.js`.
 
-- **Enlace telefónico:** de `(55) 2122 5600` + `--ext 106` arma `tel:+525521225600,106`.
+### Lo que el generador hace por ti
+
+- **Enlace telefónico:** de `(55) 2122 5600` + ext. `106` arma `tel:+525521225600,106`.
 - **Acentos:** `José Peña` sale como `Jos&#233; Pe&#241;a`, que sobrevive a
   editores de firma que no respetan UTF-8.
 - **Mayúsculas del nombre:** se aplican en el texto, no solo con CSS, porque
   Outlook de escritorio ignora `text-transform`.
-- **Validación:** aborta si falta una imagen en `img/` o si queda algún
-  marcador sin rellenar.
 
 ### Límite de ancho
 
-La columna del nombre mide 290 px: entran unos 17 caracteres antes de saltar de
-línea. Para nombres más largos, baja el `font-size:24px` de esa línea en
-`_plantilla.src.html`.
+La columna del nombre mide 290 px: entran unos 17 caracteres antes de saltar
+de línea. Para nombres más largos, baja el `font-size:22px` de esa línea en
+`plantilla.js`.
+
+## Diseño minimalista (sin bloque azul)
+
+Fondo blanco en toda la firma, sin bloques de color grandes — esto evita que
+el modo oscuro de Outlook/Apple Mail reinterprete un fondo de color y vuelva
+el texto ilegible. El único acento de color es la barra de 4 tramos al fondo.
+
+Colores de texto sobre blanco:
+
+| Elemento | Color |
+|---|---|
+| Nombre | `#1f3b64` (azul marino, bold) |
+| Puesto | `#6b7684` (gris) |
+| Correo / teléfono / dirección / sitio | `#33475b` (gris azulado oscuro) |
+
+Los iconos (`icon-mail.png`, etc.) son glifo sólido `#33475b` sobre fondo
+transparente, a juego con el texto de contacto — sin insignia de fondo azul.
+
+Todos los colores de texto llevan `!important` como refuerzo adicional contra
+reinterpretación de clientes de correo. No hay garantía 100%: el modo oscuro
+de Outlook para Mac en particular reinterpreta a nivel de aplicación, no solo
+CSS, y no hay meta-tag que lo bloquee en una firma pegada sin `<head>` propio.
 
 ## Detalles tomados del diseño original
 
-- Fondo azul `#3f6daf`
 - Barra inferior en cuatro tramos iguales:
   rojo `#ce4040`, morado `#89297c`, naranja `#e59535`, verde `#9cbe43`
 - Tipografía monoespaciada: `'Source Code Pro', Menlo, Consolas, 'Courier New', monospace`.
