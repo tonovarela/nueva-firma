@@ -4,11 +4,11 @@
 // Datos de empresa: iguales para todos, raramente cambian. Editar aqui si cambian.
 const EMPRESA = {
   telefono: "(55) 2122 5600",
-  direccion1: "Calz. San Francisco Cuautlalpan 102-A,",
-  direccion2: "53569, Naucalpan Edo. de México",
+  direccion1: "Calz. San Francisco Cuautlalpan 102‑A, C.P. 53569",
+  direccion2: "Naucalpan Edo. de México",
   sitio: "www.litoprocess.com",
   lada_pais: "+52",
-  img_base: "https://www.litoprocess.com/firma/img/",
+  img_base: "https://litoprocess.com/mailer/assets/img/",
 };
 
 /** Escapa el texto para HTML y convierte no-ascii en entidades numericas.
@@ -120,7 +120,7 @@ function actualizarPreview() {
     els.preview.onload = ajustarAlturaPreview;
     return;
   }
-  const html = generarFirma(datos, "base64");
+  const html = generarFirma(datos, "url");
   els.preview.srcdoc = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:16px;background:#fff">${html}</body></html>`;
   els.preview.onload = ajustarAlturaPreview;
 }
@@ -169,7 +169,7 @@ function alCopiarFirma() {
     mostrarEstado("Falta nombre o correo.", true);
     return;
   }
-  const html = generarFirma(datos, "base64");
+  const html = generarFirma(datos, "url");
   const ok = copiarComoRico(html);
   mostrarEstado(
     ok

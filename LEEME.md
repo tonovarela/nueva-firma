@@ -1,6 +1,6 @@
 # Firma de correo · Litoprocess
 
-Plantilla HTML de 640 px de ancho, maquetada con tablas y estilos en línea
+Plantilla HTML de 700 px de ancho, maquetada con tablas y estilos en línea
 (el único formato que respetan Gmail, Outlook, Apple Mail y Thunderbird).
 
 Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
@@ -24,7 +24,13 @@ Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
    editan por persona.
 3. Revisa el preview.
 4. Botón **"Copiar firma (para pegar)"** — copia la firma lista, con las
-   imágenes incrustadas en base64 (no depende de ningún servidor).
+   imágenes apuntando a `https://litoprocess.com/mailer/assets/img/`.
+
+   > **Nota:** las imágenes se referencian por URL, no en base64. Apple Mail
+   > convierte las imágenes en base64 pegadas en Ajustes → Firmas en archivos
+   > adjuntos en vez de mostrarlas en línea — por eso el modo URL es el que
+   > hay que usar. Esto requiere que las 5 imágenes de `img/` estén subidas a
+   > esa ruta pública antes de repartir la firma.
 
 Si el copiado automático falla (navegador viejo o permisos bloqueados), el
 mensaje de estado te avisa: selecciona el preview a mano y copia con
@@ -50,7 +56,7 @@ const EMPRESA = {
   direccion2: "53569, Naucalpan Edo. de México",
   sitio: "www.litoprocess.com",
   lada_pais: "+52",
-  img_base: "https://www.litoprocess.com/firma/img/",
+  img_base: "https://litoprocess.com/mailer/assets/img/",
 };
 ```
 
@@ -59,19 +65,13 @@ aplica a todas las firmas que generes después.
 
 ### Si cambias una imagen
 
-`img-data.js` es una copia en base64 de `img/*.png`, generada una sola vez.
-Si reemplazas alguna imagen, regenera ese archivo desde la terminal (usa
-`base64`, viene instalado en macOS/Linux, no hace falta ningún lenguaje de
-programación extra):
-
-```bash
-cd img
-for f in *.png; do
-  printf '  "%s": "data:image/png;base64,%s",\n' "$f" "$(base64 -i "$f" | tr -d '\n')"
-done
-```
-
-Pega el resultado dentro del objeto `IMG_DATA` en `img-data.js`.
+Las imágenes de la firma NO se incrustan en base64 — se cargan por URL desde
+`img_base` (`https://litoprocess.com/mailer/assets/img/`). Si reemplazas
+alguna imagen, sube el archivo nuevo a esa ruta pública con el mismo nombre
+(`icon-mail.png`, `icon-tel.png`, `icon-mapa.png`, `icon-web.png`,
+`lito-inferior.png`) — el `img/` de este repo es solo la fuente/respaldo, no
+lo que carga la firma. `img-data.js` quedó sin uso (era el respaldo en
+base64 del modo autocontenido, que Apple Mail no soporta bien en firmas).
 
 ### Lo que el generador hace por ti
 
@@ -83,8 +83,8 @@ Pega el resultado dentro del objeto `IMG_DATA` en `img-data.js`.
 
 ### Límite de ancho
 
-La columna del nombre mide 290 px: entran unos 17 caracteres antes de saltar
-de línea. Para nombres más largos, baja el `font-size:22px` de esa línea en
+La columna del nombre mide 317 px: entran unos 17 caracteres antes de saltar
+de línea. Para nombres más largos, baja el `font-size:24px` de esa línea en
 `plantilla.js`.
 
 ## Diseño minimalista (sin bloque azul)
