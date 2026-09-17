@@ -22,8 +22,9 @@ Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
 2. Llena Nombre, Puesto, Correo y Extensión. Los datos de empresa (teléfono,
    dirección, sitio) son fijos — salen de `EMPRESA` en `generador.js`, no se
    editan por persona.
-3. Revisa el preview.
-4. Botón **"Copiar firma (para pegar)"** — copia la firma lista, con las
+3. Elige el **Diseño**: Clásico, Megáfono o Bloque azul (ver más abajo).
+4. Revisa el preview.
+5. Botón **"Copiar firma (para pegar)"** — copia la firma lista, con las
    imágenes apuntando a `https://litoprocess.com/mailer/assets/img/`.
 
    > **Nota:** las imágenes se referencian por URL, no en base64. Apple Mail
@@ -108,6 +109,36 @@ Todos los colores de texto llevan `!important` como refuerzo adicional contra
 reinterpretación de clientes de correo. No hay garantía 100%: el modo oscuro
 de Outlook para Mac en particular reinterpreta a nivel de aplicación, no solo
 CSS, y no hay meta-tag que lo bloquee en una firma pegada sin `<head>` propio.
+
+## Los tres diseños
+
+El generador incluye tres plantillas (`PLANTILLA`, `PLANTILLA_SEGUNDA` y
+`PLANTILLA_TERCERA` en `plantilla.js`), seleccionables con los radio buttons
+"Diseño" de `generador.html`:
+
+| Diseño | Constante | Basado en |
+|---|---|---|
+| Clásico | `PLANTILLA` | Diseño original, franja de colores al pie |
+| Megáfono | `PLANTILLA_SEGUNDA` | `references/segunda.jpeg` — foto del megáfono a la izquierda |
+| Bloque azul | `PLANTILLA_TERCERA` | `references/tercera.jpeg` — bloque de contacto en fondo azul |
+
+Los tres usan los mismos marcadores (`{{NOMBRE}}`, `{{CORREO}}`, etc.) y los
+mismos datos de `EMPRESA`; solo cambia el HTML/CSS de la plantilla y las
+imágenes que usa. Imágenes nuevas en `img/`, recortadas de las referencias:
+
+- `hombre-megafono.png` — foto del diseño "Megáfono".
+- `logo-litoprocess.png` / `certificaciones.png` — logo y certificaciones
+  sueltos (recortados de `lito-inferior.png`) para poder colocarlos por
+  separado en los nuevos layouts.
+- `texto-color.png` — el logotipo "EMPAQUE DISPLAY POP IMPRESIÓN COMERCIAL".
+- `mano.png` — el ícono de la mano (recortado de `tercera.jpeg` sobre fondo
+  azul, con transparencia).
+- `icon-*-blanco.png` — versión blanca de los íconos de contacto, para
+  usarlos sobre el bloque azul del diseño "Bloque azul".
+
+La etiqueta "Te llevarás una gran impresión" **no** es una imagen en estos
+dos diseños nuevos: es texto real (`<td bgcolor>` + `<span>`) para que
+siempre se vea nítido a cualquier tamaño y no dependa de recortes de imagen.
 
 ## Detalles tomados del diseño original
 

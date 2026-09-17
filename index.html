@@ -71,6 +71,23 @@
     border-color: var(--azul);
   }
 
+  .disenos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .disenos label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--texto);
+    margin: 0;
+    cursor: pointer;
+  }
+  .disenos input { width: auto; }
+
   .acciones {
     margin-top: 18px;
     display: flex;
@@ -142,6 +159,13 @@
 
     <label for="campo-ext">Extensión</label>
     <input id="campo-ext" type="text" value="106">
+
+    <label>Diseño</label>
+    <div class="disenos">
+      <label><input type="radio" name="diseno" value="clasico" checked> Clásico (franja de colores)</label>
+      <label><input type="radio" name="diseno" value="megafono"> Megáfono</label>
+      <label><input type="radio" name="diseno" value="azul"> Bloque azul</label>
+    </div>
 
     <div class="acciones">
       <button id="btn-copiar">Copiar firma (para pegar)</button>

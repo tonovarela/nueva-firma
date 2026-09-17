@@ -70,12 +70,20 @@ function resolverImagenes(html, resolverImg) {
   return html.replace(/\{\{IMG\}\}([\w.-]+)/g, (_, archivo) => resolverImg(archivo));
 }
 
+/** Disenos disponibles: cada uno referencia la plantilla de plantilla.js. */
+const DISENOS = {
+  clasico: PLANTILLA,
+  megafono: PLANTILLA_SEGUNDA,
+  azul: PLANTILLA_TERCERA,
+};
+
 /** Genera el HTML final de la firma.
  * modo "base64": imagenes incrustadas, autocontenido, listo para copiar y pegar.
  * modo "url": imagenes apuntando a datos.img_base, para herramientas corporativas. */
-function generarFirma(datos, modo) {
+function generarFirma(datos, modo, diseno) {
   const campos = construirCampos(datos);
-  let html = rellenar(PLANTILLA, campos);
+  const plantilla = DISENOS[diseno] || PLANTILLA;
+  let html = rellenar(plantilla, campos);
   if (modo === "base64") {
     html = resolverImagenes(html, (archivo) => IMG_DATA[archivo] || "");
   } else {
@@ -106,6 +114,11 @@ function leerDatosDeFormulario() {
   });
 }
 
+function leerDisenoSeleccionado() {
+  const radio = document.querySelector('input[name="diseno"]:checked');
+  return radio ? radio.value : "clasico";
+}
+
 /** Ajusta la altura del iframe al contenido real, para que nunca haga scroll. */
 function ajustarAlturaPreview() {
   const doc = els.preview.contentDocument;
@@ -120,7 +133,7 @@ function actualizarPreview() {
     els.preview.onload = ajustarAlturaPreview;
     return;
   }
-  const html = generarFirma(datos, "url");
+  const html = generarFirma(datos, "url", leerDisenoSeleccionado());
   els.preview.srcdoc = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:16px;background:#fff">${html}</body></html>`;
   els.preview.onload = ajustarAlturaPreview;
 }
@@ -169,7 +182,7 @@ function alCopiarFirma() {
     mostrarEstado("Falta nombre o correo.", true);
     return;
   }
-  const html = generarFirma(datos, "url");
+  const html = generarFirma(datos, "url", leerDisenoSeleccionado());
   const ok = copiarComoRico(html);
   mostrarEstado(
     ok
@@ -184,6 +197,10 @@ function iniciar() {
 
   for (const campo of ["nombre", "puesto", "correo", "ext"]) {
     els[campo].addEventListener("input", actualizarPreview);
+  }
+
+  for (const radio of document.querySelectorAll('input[name="diseno"]')) {
+    radio.addEventListener("change", actualizarPreview);
   }
 
   els.btnCopiar.addEventListener("click", alCopiarFirma);

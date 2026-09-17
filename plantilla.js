@@ -93,3 +93,225 @@ const PLANTILLA = `<table role="presentation" cellpadding="0" cellspacing="0" bo
     </td>
   </tr>
 </table>`;
+
+// ---------------------------------------------------------------------------
+// DISENO 2 "MEGAFONO" — basado en references/segunda.jpeg
+// Foto del megafono a la izquierda; a la derecha nombre/puesto, logotipo de
+// color, barra de cuatro colores, etiqueta "Te llevaras..." y contacto.
+// Logo y certificaciones al pie, dentro de la misma columna derecha.
+const PLANTILLA_SEGUNDA = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="700" bgcolor="#ffffff"
+       style="width:700px;border-collapse:collapse;background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;">
+  <tr>
+    <td bgcolor="#ffffff" style="background-color:#ffffff !important;padding:22px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="656" bgcolor="#ffffff" style="width:656px;border-collapse:collapse;background-color:#ffffff !important;">
+        <tr>
+
+          <!-- Foto del megafono -->
+          <td width="150" valign="top" bgcolor="#ffffff" style="width:150px;padding:0 16px 0 0;background-color:#ffffff !important;">
+            <img src="{{IMG}}hombre-megafono.png" width="150" height="281" alt="" style="display:block;width:150px;height:281px;border:0;outline:none;">
+          </td>
+
+          <!-- Columna derecha -->
+          <td width="490" valign="top" bgcolor="#ffffff" style="width:490px;padding:0;background-color:#ffffff !important;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="490" bgcolor="#ffffff" style="width:490px;border-collapse:collapse;background-color:#ffffff !important;">
+
+              <!-- Nombre / puesto + logotipo de color -->
+              <tr>
+                <td width="340" valign="top" bgcolor="#ffffff" style="width:340px;padding:0;background-color:#ffffff !important;">
+                  <div style="margin:0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:22px;line-height:27px;mso-line-height-rule:exactly;font-weight:bold;letter-spacing:0.5px;color:#1f3b64 !important;text-transform:uppercase;white-space:nowrap;">{{NOMBRE}}</div>
+                  <div style="margin:0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:18px;line-height:23px;mso-line-height-rule:exactly;font-weight:normal;letter-spacing:0.5px;color:#d5602f !important;">{{PUESTO}}</div>
+                </td>
+                <td width="150" valign="top" align="right" bgcolor="#ffffff" style="width:150px;padding:0;background-color:#ffffff !important;">
+                  <img src="{{IMG}}texto-color-vertical.png" width="130" height="88" alt="Empaque, Display, POP, Impresion Comercial" style="display:block;width:130px;height:88px;border:0;outline:none;">
+                </td>
+              </tr>
+
+              <!-- Barra de cuatro colores -->
+              <tr>
+                <td colspan="2" bgcolor="#ffffff" style="padding:10px 0 0 0;font-size:0;line-height:0;background-color:#ffffff !important;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="490" bgcolor="#ffffff" style="width:490px;border-collapse:collapse;background-color:#ffffff !important;">
+                    <tr>
+                      <td width="123" height="2" bgcolor="#ce4040" style="width:123px;height:2px;background-color:#ce4040;font-size:0;line-height:0;">&nbsp;</td>
+                      <td width="122" height="2" bgcolor="#89297c" style="width:122px;height:2px;background-color:#89297c;font-size:0;line-height:0;">&nbsp;</td>
+                      <td width="123" height="2" bgcolor="#e59535" style="width:123px;height:2px;background-color:#e59535;font-size:0;line-height:0;">&nbsp;</td>
+                      <td width="122" height="2" bgcolor="#9cbe43" style="width:122px;height:2px;background-color:#9cbe43;font-size:0;line-height:0;">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Etiqueta "Te llevaras una gran impresion" -->
+              <tr>
+                <td colspan="2" align="right" bgcolor="#ffffff" style="padding:0 0 12px 0;background-color:#ffffff !important;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#1f3b64" style="border-collapse:collapse;background-color:#1f3b64 !important;">
+                    <tr>
+                      <td style="padding:6px 14px;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;font-weight:bold;color:#ffffff !important;white-space:nowrap;">Te llevar&aacute;s una gran impresi&oacute;n</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Correo / direccion -->
+              <tr>
+                <td width="245" valign="top" bgcolor="#ffffff" style="width:245px;padding:0 0 8px 0;background-color:#ffffff !important;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#ffffff" style="width:245px;border-collapse:collapse;background-color:#ffffff !important;">
+                    <tr>
+                      <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-mail.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;"><a href="mailto:{{CORREO}}" style="color:#2a3b5c !important;text-decoration:none;">{{CORREO}}</a></td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="245" valign="top" bgcolor="#ffffff" style="width:245px;padding:0 0 8px 0;background-color:#ffffff !important;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#ffffff" style="width:245px;border-collapse:collapse;background-color:#ffffff !important;">
+                    <tr>
+                      <td width="22" valign="top" bgcolor="#ffffff" style="width:22px;padding:1px 8px 0 0;"><img src="{{IMG}}icon-mapa.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                      <td valign="top" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;">{{DIRECCION_1}}<br>{{DIRECCION_2}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Telefono / sitio -->
+              <tr>
+                <td width="245" valign="top" bgcolor="#ffffff" style="width:245px;padding:0;background-color:#ffffff !important;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#ffffff" style="width:245px;border-collapse:collapse;background-color:#ffffff !important;">
+                    <tr>
+                      <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-tel.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;"><a href="tel:{{TEL_HREF}}" style="color:#2a3b5c !important;text-decoration:none;">{{TELEFONO}}</a></td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="245" valign="top" bgcolor="#ffffff" style="width:245px;padding:0;background-color:#ffffff !important;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#ffffff" style="width:245px;border-collapse:collapse;background-color:#ffffff !important;">
+                    <tr>
+                      <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-web.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;"><a href="{{SITIO_HREF}}" style="color:#2a3b5c !important;text-decoration:none;">{{SITIO}}</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Espaciador -->
+              <tr><td colspan="2" bgcolor="#ffffff" style="padding:0 0 18px 0;font-size:0;line-height:0;background-color:#ffffff !important;">&nbsp;</td></tr>
+
+              <!-- Logotipo y certificaciones -->
+              <tr>
+                <td width="245" valign="middle" bgcolor="#ffffff" style="width:245px;padding:0;background-color:#ffffff !important;">
+                  <img src="{{IMG}}logo-litoprocess.png" width="190" height="40" alt="Litoprocess - impresos + soluciones" style="display:block;width:190px;height:40px;border:0;outline:none;">
+                </td>
+                <td width="245" valign="middle" align="right" bgcolor="#ffffff" style="width:245px;padding:0;background-color:#ffffff !important;">
+                  <img src="{{IMG}}certificaciones.png" width="210" height="21" alt="" style="display:block;width:210px;height:21px;border:0;outline:none;">
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>`;
+
+// ---------------------------------------------------------------------------
+// DISENO 3 "BLOQUE AZUL" — basado en references/tercera.jpeg
+// Bloque blanco arriba (nombre/puesto/logotipo de color a la izquierda,
+// logo y certificaciones a la derecha) y bloque azul abajo con el contacto,
+// la mano y la etiqueta "Te llevaras...".
+const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="700" bgcolor="#ffffff"
+       style="width:700px;border-collapse:collapse;background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;">
+
+  <!-- BLOQUE BLANCO -->
+  <tr>
+    <td bgcolor="#ffffff" style="background-color:#ffffff !important;padding:24px 22px 18px 22px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="656" bgcolor="#ffffff" style="width:656px;border-collapse:collapse;background-color:#ffffff !important;">
+        <tr>
+
+          <!-- Nombre, puesto y logotipo de color -->
+          <td width="356" valign="top" bgcolor="#ffffff" style="width:356px;padding:0;background-color:#ffffff !important;">
+            <div style="margin:0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:26px;line-height:31px;mso-line-height-rule:exactly;font-weight:bold;letter-spacing:1px;color:#1f3b64 !important;text-transform:uppercase;">{{NOMBRE}}</div>
+            <div style="margin:0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:19px;line-height:24px;mso-line-height-rule:exactly;font-weight:normal;letter-spacing:0.5px;color:#3f6daf !important;">{{PUESTO}}</div>
+            <div style="padding:10px 0 0 0;font-size:0;line-height:0;">
+              <img src="{{IMG}}texto-color.png" width="300" height="21" alt="Empaque, Display, POP, Impresion Comercial" style="display:block;width:300px;height:21px;border:0;outline:none;">
+            </div>
+          </td>
+
+          <!-- Logo y certificaciones -->
+          <td width="300" valign="top" align="right" bgcolor="#ffffff" style="width:300px;padding:2px 0 0 0;background-color:#ffffff !important;">
+            <img src="{{IMG}}logo-litoprocess.png" width="210" height="44" alt="Litoprocess - impresos + soluciones" style="display:block;width:210px;height:44px;border:0;outline:none;">
+            <div style="padding:10px 0 0 0;font-size:0;line-height:0;">
+              <img src="{{IMG}}certificaciones.png" width="210" height="21" alt="" style="display:block;width:210px;height:21px;border:0;outline:none;">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- BLOQUE AZUL: contacto, mano y etiqueta -->
+  <tr>
+    <td bgcolor="#306fb4" style="background-color:#306fb4 !important;padding:22px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="656" bgcolor="#306fb4" style="width:656px;border-collapse:collapse;background-color:#306fb4 !important;">
+        <tr>
+
+          <!-- Correo -->
+          <td width="218" valign="top" bgcolor="#306fb4" style="width:218px;padding:0 0 14px 0;background-color:#306fb4 !important;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="218" bgcolor="#306fb4" style="width:218px;border-collapse:collapse;background-color:#306fb4 !important;">
+              <tr>
+                <td width="22" valign="middle" bgcolor="#306fb4" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-mail-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;"><a href="mailto:{{CORREO}}" style="color:#ffffff !important;text-decoration:none;">{{CORREO}}</a></td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- Telefono -->
+          <td width="218" valign="top" bgcolor="#306fb4" style="width:218px;padding:0 0 14px 0;background-color:#306fb4 !important;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="218" bgcolor="#306fb4" style="width:218px;border-collapse:collapse;background-color:#306fb4 !important;">
+              <tr>
+                <td width="22" valign="middle" bgcolor="#306fb4" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-tel-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;"><a href="tel:{{TEL_HREF}}" style="color:#ffffff !important;text-decoration:none;">{{TELEFONO}}</a></td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- Direccion (ocupa las dos filas) -->
+          <td width="218" valign="top" rowspan="2" bgcolor="#306fb4" style="width:218px;padding:0;background-color:#306fb4 !important;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="218" bgcolor="#306fb4" style="width:218px;border-collapse:collapse;background-color:#306fb4 !important;">
+              <tr>
+                <td width="22" valign="top" bgcolor="#306fb4" style="width:22px;padding:1px 8px 0 0;"><img src="{{IMG}}icon-mapa-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                <td valign="top" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;">{{DIRECCION_1}}<br>{{DIRECCION_2}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+
+          <!-- Mano + etiqueta "Te llevaras una gran impresion" -->
+          <td width="218" valign="middle" bgcolor="#306fb4" style="width:218px;padding:0;background-color:#306fb4 !important;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#306fb4" style="border-collapse:collapse;background-color:#306fb4 !important;">
+              <tr>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;padding:0 8px 0 0;"><img src="{{IMG}}mano.png" width="26" height="46" alt="" style="display:block;width:26px;height:46px;border:0;outline:none;"></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;padding:0;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#21275c" style="border-collapse:collapse;background-color:#21275c !important;">
+                    <tr>
+                      <td style="padding:4px 8px;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:10px;line-height:12px;mso-line-height-rule:exactly;font-weight:bold;color:#ffffff !important;white-space:nowrap;">Te llevar&aacute;s una gran impresi&oacute;n</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- Sitio web -->
+          <td width="218" valign="middle" bgcolor="#306fb4" style="width:218px;padding:0;background-color:#306fb4 !important;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="218" bgcolor="#306fb4" style="width:218px;border-collapse:collapse;background-color:#306fb4 !important;">
+              <tr>
+                <td width="22" valign="middle" bgcolor="#306fb4" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-web-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;"><a href="{{SITIO_HREF}}" style="color:#ffffff !important;text-decoration:none;">{{SITIO}}</a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>`;
