@@ -119,10 +119,12 @@ function leerDisenoSeleccionado() {
   return radio ? radio.value : "clasico";
 }
 
-/** Ajusta la altura del iframe al contenido real, para que nunca haga scroll. */
-function ajustarAlturaPreview() {
+/** Ajusta ancho y alto del iframe al contenido real (tamaño de la plantilla
+ * activa), para que el preview nunca recorte la firma ni deje espacio de más. */
+function ajustarTamanoPreview() {
   const doc = els.preview.contentDocument;
   if (!doc || !doc.body) return;
+  els.preview.style.width = doc.body.scrollWidth + "px";
   els.preview.style.height = doc.body.scrollHeight + "px";
 }
 
@@ -130,12 +132,12 @@ function actualizarPreview() {
   const datos = leerDatosDeFormulario();
   if (!datos.nombre || !datos.correo) {
     els.preview.srcdoc = "<p style='font-family:sans-serif;color:#888;padding:16px'>Falta nombre o correo.</p>";
-    els.preview.onload = ajustarAlturaPreview;
+    els.preview.onload = ajustarTamanoPreview;
     return;
   }
   const html = generarFirma(datos, "url", leerDisenoSeleccionado());
   els.preview.srcdoc = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:16px;background:#fff">${html}</body></html>`;
-  els.preview.onload = ajustarAlturaPreview;
+  els.preview.onload = ajustarTamanoPreview;
 }
 
 function mostrarEstado(mensaje, esError) {

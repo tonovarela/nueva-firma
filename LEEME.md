@@ -1,6 +1,6 @@
 # Firma de correo · Litoprocess
 
-Plantilla HTML de 700 px de ancho, maquetada con tablas y estilos en línea
+Plantilla HTML de 780 px de ancho, maquetada con tablas y estilos en línea
 (el único formato que respetan Gmail, Outlook, Apple Mail y Thunderbird).
 
 Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
@@ -84,9 +84,9 @@ base64 del modo autocontenido, que Apple Mail no soporta bien en firmas).
 
 ### Límite de ancho
 
-La columna del nombre mide 317 px: entran unos 17 caracteres antes de saltar
-de línea. Para nombres más largos, baja el `font-size:24px` de esa línea en
-`plantilla.js`.
+La columna del nombre mide 356 px: entran unos 19-20 caracteres antes de
+saltar de línea. Para nombres más largos, baja el `font-size:24px` de esa
+línea en `plantilla.js`.
 
 ## Diseño minimalista (sin bloque azul)
 
