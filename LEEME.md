@@ -139,7 +139,8 @@ imágenes que usa. Imágenes nuevas en `img/`, recortadas de las referencias:
 - `icon-*-blanco.png` — versión blanca de los íconos de contacto, para
   usarlos sobre el bloque azul del diseño "Bloque azul".
 - `banner-cuarta.jpg` — banner verde del diseño "Banner verde" (1560×416,
-  se muestra a 780×208 para verse nítido en pantallas retina).
+  se muestra a 600×160 para verse nítido en pantallas retina). Este diseño
+  mide 600 px de ancho y usa Calibri (`Calibri, Carlito, 'Segoe UI', Arial`) en color `#25346d`.
 - `icon-*-azul.png` — íconos de contacto en azul marino con transparencia,
   para el diseño "Banner verde". `icon-tel-azul.png` e `icon-web-azul.png` son
   `icon-tel.png` / `icon-web.png` recoloreados en azul marino.

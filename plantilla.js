@@ -332,45 +332,46 @@ const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacin
 // la fila de celular se quita si el campo va vacio),
 // y abajo el banner verde completo (logo, slogan, certificaciones y personaje)
 // como una sola imagen enlazada al sitio.
-const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="780" bgcolor="#ffffff"
-       style="width:780px;border-collapse:collapse;background-color:#ffffff !important;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;">
+// Ancho 600 px (tamano estandar de firma) y tipografia Calibri.
+const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" bgcolor="#ffffff"
+       style="width:600px;border-collapse:collapse;background-color:#ffffff !important;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;">
 
   <!-- BLOQUE BLANCO: nombre, puesto y contacto -->
   <tr>
-    <td bgcolor="#ffffff" style="background-color:#ffffff !important;padding:4px 20px 22px 20px;">
-      <div style="margin:0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:28px;line-height:36px;mso-line-height-rule:exactly;font-weight:bold;color:#111111 !important;text-transform:uppercase;">{{NOMBRE}}</div>
-      <div style="margin:0;padding:0 0 22px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:22px;line-height:30px;mso-line-height-rule:exactly;font-weight:bold;color:#111111 !important;">{{PUESTO}}</div>
+    <td bgcolor="#ffffff" style="background-color:#ffffff !important;padding:4px 16px 16px 16px;">
+      <div style="margin:0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:20px;line-height:24px;mso-line-height-rule:exactly;font-weight:bold;color:#25346d !important;text-transform:uppercase;">{{NOMBRE}}</div>
+      <div style="margin:0;padding:0 0 12px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;mso-line-height-rule:exactly;font-weight:bold;color:#25346d !important;">{{PUESTO}}</div>
 
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="border-collapse:collapse;background-color:#ffffff !important;">
 
         <!-- Correo -->
         <tr>
-          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-mail-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="mailto:{{CORREO}}" style="color:#222222 !important;text-decoration:none;">{{CORREO}}</a></td>
+          <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 0 6px 0;"><img src="{{IMG}}icon-mail-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="mailto:{{CORREO}}" style="color:#25346d !important;text-decoration:none;">{{CORREO}}</a></td>
         </tr>
 
         <!-- Telefono -->
         <tr>
-          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-tel-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="tel:{{TEL_HREF}}" style="color:#222222 !important;text-decoration:none;">{{TELEFONO}}</a></td>
+          <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 0 6px 0;"><img src="{{IMG}}icon-tel-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="tel:{{TEL_HREF}}" style="color:#25346d !important;text-decoration:none;">{{TELEFONO}}</a></td>
         </tr>
 
         <!-- Celular (se elimina si el campo va vacio) -->
         <!--CELULAR_INICIO--><tr>
-          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-cel-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="tel:{{CEL_HREF}}" style="color:#222222 !important;text-decoration:none;">{{CELULAR}}</a></td>
+          <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 0 6px 0;"><img src="{{IMG}}icon-cel-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="tel:{{CEL_HREF}}" style="color:#25346d !important;text-decoration:none;">{{CELULAR}}</a></td>
         </tr><!--CELULAR_FIN-->
 
         <!-- Direccion -->
         <tr>
-          <td width="30" valign="top" bgcolor="#ffffff" style="width:30px;padding:2px 0 12px 0;"><img src="{{IMG}}icon-mapa-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
-          <td valign="top" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;">{{DIRECCION_1}}<br>{{DIRECCION_2}}</td>
+          <td width="22" valign="top" bgcolor="#ffffff" style="width:22px;padding:2px 0 6px 0;"><img src="{{IMG}}icon-mapa-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+          <td valign="top" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;">{{DIRECCION_1}}<br>{{DIRECCION_2}}</td>
         </tr>
 
         <!-- Sitio web -->
         <tr>
-          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0;"><img src="{{IMG}}icon-web-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="{{SITIO_HREF}}" style="color:#222222 !important;text-decoration:none;">{{SITIO}}</a></td>
+          <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0;"><img src="{{IMG}}icon-web-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="{{SITIO_HREF}}" style="color:#25346d !important;text-decoration:none;">{{SITIO}}</a></td>
         </tr>
 
       </table>
@@ -380,7 +381,7 @@ const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing
   <!-- BANNER VERDE: logo, slogan, certificaciones y personaje -->
   <tr>
     <td bgcolor="#a6c307" style="padding:0;font-size:0;line-height:0;background-color:#a6c307 !important;">
-      <a href="{{SITIO_HREF}}" style="text-decoration:none;"><img src="{{IMG}}banner-cuarta.jpg" width="780" height="208" alt="Litoprocess - impresos + soluciones | Te llevaras una gran impresion | Empaque, POP, Display, Impresos comerciales" style="display:block;width:780px;height:208px;border:0;outline:none;"></a>
+      <a href="{{SITIO_HREF}}" style="text-decoration:none;"><img src="{{IMG}}banner-cuarta.jpg" width="600" height="160" alt="Litoprocess - impresos + soluciones | Te llevaras una gran impresion | Empaque, POP, Display, Impresos comerciales" style="display:block;width:600px;height:160px;border:0;outline:none;"></a>
     </td>
   </tr>
 </table>`;
