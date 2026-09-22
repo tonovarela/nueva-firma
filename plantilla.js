@@ -325,3 +325,55 @@ const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacin
     </td>
   </tr>
 </table>`;
+
+// ---------------------------------------------------------------------------
+// DISENO 4 "BANNER VERDE" — basado en references/cuarta.jpeg
+// Bloque blanco con nombre/puesto y contacto en lista vertical (iconos azules),
+// y abajo el banner verde completo (logo, slogan, certificaciones y personaje)
+// como una sola imagen enlazada al sitio.
+const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="780" bgcolor="#ffffff"
+       style="width:780px;border-collapse:collapse;background-color:#ffffff !important;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;">
+
+  <!-- BLOQUE BLANCO: nombre, puesto y contacto -->
+  <tr>
+    <td bgcolor="#ffffff" style="background-color:#ffffff !important;padding:4px 20px 22px 20px;">
+      <div style="margin:0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:28px;line-height:36px;mso-line-height-rule:exactly;font-weight:bold;color:#111111 !important;text-transform:uppercase;">{{NOMBRE}}</div>
+      <div style="margin:0;padding:0 0 22px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:22px;line-height:30px;mso-line-height-rule:exactly;font-weight:bold;color:#111111 !important;">{{PUESTO}}</div>
+
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="border-collapse:collapse;background-color:#ffffff !important;">
+
+        <!-- Correo -->
+        <tr>
+          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-mail-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="mailto:{{CORREO}}" style="color:#222222 !important;text-decoration:none;">{{CORREO}}</a></td>
+        </tr>
+
+        <!-- Telefono -->
+        <tr>
+          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-tel-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="tel:{{TEL_HREF}}" style="color:#222222 !important;text-decoration:none;">{{TELEFONO}}</a></td>
+        </tr>
+
+        <!-- Direccion -->
+        <tr>
+          <td width="30" valign="top" bgcolor="#ffffff" style="width:30px;padding:2px 0 12px 0;"><img src="{{IMG}}icon-mapa-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
+          <td valign="top" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;">{{DIRECCION_1}}<br>{{DIRECCION_2}}</td>
+        </tr>
+
+        <!-- Sitio web -->
+        <tr>
+          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0;"><img src="{{IMG}}icon-web-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="{{SITIO_HREF}}" style="color:#222222 !important;text-decoration:none;">{{SITIO}}</a></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+
+  <!-- BANNER VERDE: logo, slogan, certificaciones y personaje -->
+  <tr>
+    <td bgcolor="#a6c307" style="padding:0;font-size:0;line-height:0;background-color:#a6c307 !important;">
+      <a href="{{SITIO_HREF}}" style="text-decoration:none;"><img src="{{IMG}}banner-cuarta.jpg" width="780" height="208" alt="Litoprocess - impresos + soluciones | Te llevaras una gran impresion | Empaque, POP, Display, Impresos comerciales" style="display:block;width:780px;height:208px;border:0;outline:none;"></a>
+    </td>
+  </tr>
+</table>`;

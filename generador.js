@@ -75,6 +75,7 @@ const DISENOS = {
   clasico: PLANTILLA,
   megafono: PLANTILLA_SEGUNDA,
   azul: PLANTILLA_TERCERA,
+  verde: PLANTILLA_CUARTA,
 };
 
 /** Genera el HTML final de la firma.
