@@ -6,7 +6,7 @@ const EMPRESA = {
   telefono: "(55) 2122 5600",
   direccion1: "Calz. San Francisco Cuautlalpan 102‑A, C.P. 53569",
   direccion2: "Naucalpan Edo. de México",
-  sitio: "www.litoprocess.com",
+  sitio: "www.litoprocess.com",  
   lada_pais: "+52",
   img_base: "https://litoprocess.com/mailer/assets/img/",
 };
