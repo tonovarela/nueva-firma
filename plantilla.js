@@ -328,7 +328,8 @@ const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacin
 
 // ---------------------------------------------------------------------------
 // DISENO 4 "BANNER VERDE" — basado en references/cuarta.jpeg
-// Bloque blanco con nombre/puesto y contacto en lista vertical (iconos azules),
+// Bloque blanco con nombre/puesto y contacto en lista vertical (iconos azules;
+// la fila de celular se quita si el campo va vacio),
 // y abajo el banner verde completo (logo, slogan, certificaciones y personaje)
 // como una sola imagen enlazada al sitio.
 const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="780" bgcolor="#ffffff"
@@ -353,6 +354,12 @@ const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing
           <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-tel-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
           <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="tel:{{TEL_HREF}}" style="color:#222222 !important;text-decoration:none;">{{TELEFONO}}</a></td>
         </tr>
+
+        <!-- Celular (se elimina si el campo va vacio) -->
+        <!--CELULAR_INICIO--><tr>
+          <td width="30" valign="middle" bgcolor="#ffffff" style="width:30px;padding:0 0 12px 0;"><img src="{{IMG}}icon-cel-azul.png" width="18" height="18" alt="" style="display:block;width:18px;height:18px;border:0;outline:none;"></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 12px 0;font-family:'Open Sans','Segoe UI',Arial,Helvetica,sans-serif;font-size:17px;line-height:22px;mso-line-height-rule:exactly;color:#222222 !important;"><a href="tel:{{CEL_HREF}}" style="color:#222222 !important;text-decoration:none;">{{CELULAR}}</a></td>
+        </tr><!--CELULAR_FIN-->
 
         <!-- Direccion -->
         <tr>

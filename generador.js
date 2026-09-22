@@ -54,7 +54,17 @@ function construirCampos(datos) {
     DIRECCION_2: textoHtml(datos.direccion2),
     SITIO: textoHtml(datos.sitio),
     SITIO_HREF: textoHtml(sitioHref),
+    CELULAR: textoHtml(datos.celular || ""),
+    CEL_HREF: textoHtml(datos.celular ? telAHref(datos.celular, "", datos.lada_pais) : ""),
   };
+}
+
+/** Quita el bloque <!--CELULAR_INICIO-->...<!--CELULAR_FIN--> si no hay celular;
+ * si lo hay, solo quita los comentarios marcadores. */
+function aplicarCelular(plantilla, celular) {
+  return celular
+    ? plantilla.replace(/<!--CELULAR_(INICIO|FIN)-->/g, "")
+    : plantilla.replace(/<!--CELULAR_INICIO-->[\s\S]*?<!--CELULAR_FIN-->\s*/g, "");
 }
 
 function rellenar(plantilla, campos) {
@@ -83,7 +93,7 @@ const DISENOS = {
  * modo "url": imagenes apuntando a datos.img_base, para herramientas corporativas. */
 function generarFirma(datos, modo, diseno) {
   const campos = construirCampos(datos);
-  const plantilla = DISENOS[diseno] || PLANTILLA;
+  const plantilla = aplicarCelular(DISENOS[diseno] || PLANTILLA, datos.celular);
   let html = rellenar(plantilla, campos);
   if (modo === "base64") {
     html = resolverImagenes(html, (archivo) => IMG_DATA[archivo] || "");
@@ -101,6 +111,7 @@ const els = {
   puesto: document.getElementById("campo-puesto"),
   correo: document.getElementById("campo-correo"),
   ext: document.getElementById("campo-ext"),
+  celular: document.getElementById("campo-celular"),
   preview: document.getElementById("preview-frame"),
   estado: document.getElementById("estado"),
   btnCopiar: document.getElementById("btn-copiar"),
@@ -112,12 +123,13 @@ function leerDatosDeFormulario() {
     puesto: els.puesto.value.trim(),
     correo: els.correo.value.trim(),
     ext: els.ext.value.trim(),
+    celular: els.celular.value.trim(),
   });
 }
 
 function leerDisenoSeleccionado() {
   const radio = document.querySelector('input[name="diseno"]:checked');
-  return radio ? radio.value : "clasico";
+  return radio ? radio.value : "verde";
 }
 
 /** Ajusta ancho y alto del iframe al contenido real (tamaño de la plantilla
@@ -198,7 +210,7 @@ function alCopiarFirma() {
 function iniciar() {
   actualizarPreview();
 
-  for (const campo of ["nombre", "puesto", "correo", "ext"]) {
+  for (const campo of ["nombre", "puesto", "correo", "ext", "celular"]) {
     els[campo].addEventListener("input", actualizarPreview);
   }
 

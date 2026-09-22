@@ -162,12 +162,19 @@
     <label for="campo-ext">Extensión</label>
     <input id="campo-ext" type="text" value="106">
 
-    <label>Diseño</label>
-    <div class="disenos">
-      <label><input type="radio" name="diseno" value="clasico" checked> Clásico (franja de colores)</label>
-      <label><input type="radio" name="diseno" value="megafono"> Megáfono</label>
-      <label><input type="radio" name="diseno" value="azul"> Bloque azul</label>
-      <label><input type="radio" name="diseno" value="verde"> Banner verde</label>
+    <label for="campo-celular">Celular <span style="font-weight:normal">(opcional)</span></label>
+    <input id="campo-celular" type="tel" value="" placeholder="(55) 1234 5678">
+
+    <!-- Selector de diseño oculto: solo se usa "Banner verde". Para volver a
+         mostrar los demás diseños, quita el atributo hidden de este bloque. -->
+    <div hidden>
+      <label>Diseño</label>
+      <div class="disenos">
+        <label><input type="radio" name="diseno" value="clasico"> Clásico (franja de colores)</label>
+        <label><input type="radio" name="diseno" value="megafono"> Megáfono</label>
+        <label><input type="radio" name="diseno" value="azul"> Bloque azul</label>
+        <label><input type="radio" name="diseno" value="verde" checked> Banner verde</label>
+      </div>
     </div>
 
     <div class="acciones">

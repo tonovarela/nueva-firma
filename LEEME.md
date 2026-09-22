@@ -22,7 +22,9 @@ Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
 2. Llena Nombre, Puesto, Correo y Extensión. Los datos de empresa (teléfono,
    dirección, sitio) son fijos — salen de `EMPRESA` en `generador.js`, no se
    editan por persona.
-3. Elige el **Diseño**: Clásico, Megáfono, Bloque azul o Banner verde (ver más abajo).
+3. El diseño es siempre **Banner verde**: el selector de diseño está oculto
+   en `index.html` (bloque con `hidden`). Las otras tres plantillas siguen en
+   `plantilla.js`; para volver a elegirlas, quita ese `hidden`.
 4. Revisa el preview.
 5. Botón **"Copiar firma (para pegar)"** — copia la firma lista, con las
    imágenes apuntando a `https://litoprocess.com/mailer/assets/img/`.
@@ -137,11 +139,15 @@ imágenes que usa. Imágenes nuevas en `img/`, recortadas de las referencias:
 - `icon-*-blanco.png` — versión blanca de los íconos de contacto, para
   usarlos sobre el bloque azul del diseño "Bloque azul".
 - `banner-cuarta.jpg` — banner verde del diseño "Banner verde" (1560×416,
-  se muestra a 780×208 para verse nítido en pantallas retina). Fuente original
-  en `img/cuarta/`.
+  se muestra a 780×208 para verse nítido en pantallas retina).
 - `icon-*-azul.png` — íconos de contacto en azul marino con transparencia,
-  para el diseño "Banner verde" (fuente en `img/cuarta/`). `icon-cel-azul.png`
-  queda disponible por si se agrega un campo de celular.
+  para el diseño "Banner verde". `icon-tel-azul.png` e `icon-web-azul.png` son
+  `icon-tel.png` / `icon-web.png` recoloreados en azul marino.
+
+El diseño "Banner verde" tiene además un campo **Celular** opcional (con el
+ícono `icon-cel-azul.png`). Si se deja vacío, la fila desaparece de la firma
+(el bloque entre `<!--CELULAR_INICIO-->` y `<!--CELULAR_FIN-->` en
+`plantilla.js` lo quita `aplicarCelular()` en `generador.js`).
 
 La etiqueta "Te llevarás una gran impresión" **no** es una imagen en estos
 dos diseños nuevos: es texto real (`<td bgcolor>` + `<span>`) para que
