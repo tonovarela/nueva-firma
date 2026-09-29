@@ -113,8 +113,6 @@ const els = {
   ext: document.getElementById("campo-ext"),
   celular: document.getElementById("campo-celular"),
   preview: document.getElementById("preview-frame"),
-  estado: document.getElementById("estado"),
-  btnCopiar: document.getElementById("btn-copiar"),
 };
 
 function leerDatosDeFormulario() {
@@ -153,60 +151,6 @@ function actualizarPreview() {
   els.preview.onload = ajustarTamanoPreview;
 }
 
-function mostrarEstado(mensaje, esError) {
-  els.estado.textContent = mensaje;
-  els.estado.style.color = esError ? "#b3261e" : "#2f6b3a";
-  clearTimeout(mostrarEstado._t);
-  mostrarEstado._t = setTimeout(() => {
-    els.estado.textContent = "";
-  }, 4000);
-}
-
-/** Copia HTML "rico" (con imagenes incrustadas) usando la seleccion del DOM +
- * execCommand, que funciona incluso abriendo el archivo con doble clic
- * (file://), a diferencia de navigator.clipboard, que exige contexto seguro. */
-function copiarComoRico(html) {
-  const contenedor = document.createElement("div");
-  contenedor.contentEditable = "true";
-  contenedor.style.position = "fixed";
-  contenedor.style.left = "-9999px";
-  contenedor.innerHTML = html;
-  document.body.appendChild(contenedor);
-
-  const rango = document.createRange();
-  rango.selectNodeContents(contenedor);
-  const seleccion = window.getSelection();
-  seleccion.removeAllRanges();
-  seleccion.addRange(rango);
-
-  let ok = false;
-  try {
-    ok = document.execCommand("copy");
-  } catch (e) {
-    ok = false;
-  }
-
-  seleccion.removeAllRanges();
-  document.body.removeChild(contenedor);
-  return ok;
-}
-
-function alCopiarFirma() {
-  const datos = leerDatosDeFormulario();
-  if (!datos.nombre || !datos.correo) {
-    mostrarEstado("Falta nombre o correo.", true);
-    return;
-  }
-  const html = generarFirma(datos, "url", leerDisenoSeleccionado());
-  const ok = copiarComoRico(html);
-  mostrarEstado(
-    ok
-      ? "Firma copiada — pégala en Configuración → Firma de tu correo."
-      : "No se pudo copiar automático. Selecciona el preview y usa Ctrl/Cmd+C.",
-    !ok
-  );
-}
-
 function iniciar() {
   actualizarPreview();
 
@@ -217,8 +161,6 @@ function iniciar() {
   for (const radio of document.querySelectorAll('input[name="diseno"]')) {
     radio.addEventListener("change", actualizarPreview);
   }
-
-  els.btnCopiar.addEventListener("click", alCopiarFirma);
 }
 
 document.addEventListener("DOMContentLoaded", iniciar);

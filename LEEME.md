@@ -26,18 +26,15 @@ Todo corre en el navegador — sin Python, sin Node, sin servidor. Abre
    en `index.html` (bloque con `hidden`). Las otras tres plantillas siguen en
    `plantilla.js`; para volver a elegirlas, quita ese `hidden`.
 4. Revisa el preview.
-5. Botón **"Copiar firma (para pegar)"** — copia la firma lista, con las
-   imágenes apuntando a `https://litoprocess.com/mailer/assets/img/`.
+5. Haz clic dentro del preview, selecciona todo con Cmd/Ctrl+A y copia con
+   Cmd/Ctrl+C. La firma copiada lleva las imágenes apuntando a
+   `https://litoprocess.com/mailer/assets/img/`.
 
    > **Nota:** las imágenes se referencian por URL, no en base64. Apple Mail
    > convierte las imágenes en base64 pegadas en Ajustes → Firmas en archivos
    > adjuntos en vez de mostrarlas en línea — por eso el modo URL es el que
    > hay que usar. Esto requiere que las 5 imágenes de `img/` estén subidas a
    > esa ruta pública antes de repartir la firma.
-
-Si el copiado automático falla (navegador viejo o permisos bloqueados), el
-mensaje de estado te avisa: selecciona el preview a mano y copia con
-Ctrl/Cmd+C.
 
 ## Paso 2 · Instalar la firma copiada
 

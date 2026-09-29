@@ -31,7 +31,7 @@ const PLANTILLA = `<table role="presentation" cellpadding="0" cellspacing="0" bo
                   <img src="{{IMG}}icon-mail.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;">
                 </td>
                 <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:14px;line-height:20px;mso-line-height-rule:exactly;color:#33475b !important;">
-                  <a href="mailto:{{CORREO}}" style="color:#33475b !important;text-decoration:none;">{{CORREO}}</a>
+                  {{CORREO}}
                 </td>
               </tr>
 
@@ -41,7 +41,7 @@ const PLANTILLA = `<table role="presentation" cellpadding="0" cellspacing="0" bo
                   <img src="{{IMG}}icon-tel.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;">
                 </td>
                 <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:14px;line-height:20px;mso-line-height-rule:exactly;color:#33475b !important;">
-                  <a href="tel:{{TEL_HREF}}" style="color:#33475b !important;text-decoration:none;">{{TELEFONO}}</a>
+                  {{TELEFONO}}
                 </td>
               </tr>
 
@@ -61,7 +61,7 @@ const PLANTILLA = `<table role="presentation" cellpadding="0" cellspacing="0" bo
                   <img src="{{IMG}}icon-web.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;">
                 </td>
                 <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:14px;line-height:20px;mso-line-height-rule:exactly;color:#33475b !important;">
-                  <a href="{{SITIO_HREF}}" style="color:#33475b !important;text-decoration:none;">{{SITIO}}</a>
+                  {{SITIO}}
                 </td>
               </tr>
 
@@ -93,10 +93,10 @@ const PLANTILLA = `<table role="presentation" cellpadding="0" cellspacing="0" bo
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="780" bgcolor="#ffffff" style="width:780px;border-collapse:collapse;background-color:#ffffff !important;">
         <tr>
           <td width="266" valign="bottom" align="left" bgcolor="#ffffff" style="width:266px;padding:0;background-color:#ffffff !important;">
-            <a href="{{SITIO_HREF}}" style="text-decoration:none;"><img src="{{IMG}}lito-pie-izquierda.png" width="266" height="85" alt="Litoprocess - impresos + soluciones" style="display:block;width:266px;height:85px;border:0;outline:none;"></a>
+            <img src="{{IMG}}lito-pie-izquierda.png" width="266" height="85" alt="Litoprocess - impresos + soluciones" style="display:block;width:266px;height:85px;border:0;outline:none;">
           </td>
           <td width="514" valign="bottom" align="right" bgcolor="#ffffff" style="width:514px;padding:0;background-color:#ffffff !important;">
-            <a href="{{SITIO_HREF}}" style="text-decoration:none;"><img src="{{IMG}}lito-pie-derecha.png" width="317" height="79" alt="Te llevaras una gran impresion | Empaque, Display, POP, Impresion Comercial" style="display:block;width:317px;height:79px;border:0;outline:none;"></a>
+            <img src="{{IMG}}lito-pie-derecha.png" width="317" height="79" alt="Te llevaras una gran impresion | Empaque, Display, POP, Impresion Comercial" style="display:block;width:317px;height:79px;border:0;outline:none;">
           </td>
         </tr>
       </table>
@@ -167,7 +167,7 @@ const PLANTILLA_SEGUNDA = `<table role="presentation" cellpadding="0" cellspacin
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="285" bgcolor="#ffffff" style="width:285px;border-collapse:collapse;background-color:#ffffff !important;">
                     <tr>
                       <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-mail.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;"><a href="mailto:{{CORREO}}" style="color:#2a3b5c !important;text-decoration:none;">{{CORREO}}</a></td>
+                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;">{{CORREO}}</td>
                     </tr>
                   </table>
                 </td>
@@ -187,7 +187,7 @@ const PLANTILLA_SEGUNDA = `<table role="presentation" cellpadding="0" cellspacin
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="285" bgcolor="#ffffff" style="width:285px;border-collapse:collapse;background-color:#ffffff !important;">
                     <tr>
                       <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-tel.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;"><a href="tel:{{TEL_HREF}}" style="color:#2a3b5c !important;text-decoration:none;">{{TELEFONO}}</a></td>
+                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;">{{TELEFONO}}</td>
                     </tr>
                   </table>
                 </td>
@@ -195,7 +195,7 @@ const PLANTILLA_SEGUNDA = `<table role="presentation" cellpadding="0" cellspacin
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="285" bgcolor="#ffffff" style="width:285px;border-collapse:collapse;background-color:#ffffff !important;">
                     <tr>
                       <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-web.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;"><a href="{{SITIO_HREF}}" style="color:#2a3b5c !important;text-decoration:none;">{{SITIO}}</a></td>
+                      <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:18px;mso-line-height-rule:exactly;color:#2a3b5c !important;word-break:break-all;overflow-wrap:break-word;">{{SITIO}}</td>
                     </tr>
                   </table>
                 </td>
@@ -268,7 +268,7 @@ const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacin
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#306fb4" style="width:245px;border-collapse:collapse;background-color:#306fb4 !important;">
               <tr>
                 <td width="22" valign="middle" bgcolor="#306fb4" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-mail-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;"><a href="mailto:{{CORREO}}" style="color:#ffffff !important;text-decoration:none;">{{CORREO}}</a></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;">{{CORREO}}</td>
               </tr>
             </table>
           </td>
@@ -278,7 +278,7 @@ const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacin
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#306fb4" style="width:245px;border-collapse:collapse;background-color:#306fb4 !important;">
               <tr>
                 <td width="22" valign="middle" bgcolor="#306fb4" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-tel-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;"><a href="tel:{{TEL_HREF}}" style="color:#ffffff !important;text-decoration:none;">{{TELEFONO}}</a></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;">{{TELEFONO}}</td>
               </tr>
             </table>
           </td>
@@ -316,7 +316,7 @@ const PLANTILLA_TERCERA = `<table role="presentation" cellpadding="0" cellspacin
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="245" bgcolor="#306fb4" style="width:245px;border-collapse:collapse;background-color:#306fb4 !important;">
               <tr>
                 <td width="22" valign="middle" bgcolor="#306fb4" style="width:22px;padding:0 8px 0 0;"><img src="{{IMG}}icon-web-blanco.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;"><a href="{{SITIO_HREF}}" style="color:#ffffff !important;text-decoration:none;">{{SITIO}}</a></td>
+                <td valign="middle" bgcolor="#306fb4" style="background-color:#306fb4 !important;font-family:'Source Code Pro',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:16px;mso-line-height-rule:exactly;color:#ffffff !important;word-break:break-all;overflow-wrap:break-word;">{{SITIO}}</td>
               </tr>
             </table>
           </td>
@@ -347,19 +347,19 @@ const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing
         <!-- Correo -->
         <tr>
           <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 0 6px 0;"><img src="{{IMG}}icon-mail-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="mailto:{{CORREO}}" style="color:#25346d !important;text-decoration:none;">{{CORREO}}</a></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;">{{CORREO}}</td>
         </tr>
 
         <!-- Telefono -->
         <tr>
           <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 0 6px 0;"><img src="{{IMG}}icon-tel-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="tel:{{TEL_HREF}}" style="color:#25346d !important;text-decoration:none;">{{TELEFONO}}</a></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;">{{TELEFONO}}</td>
         </tr>
 
         <!-- Celular (se elimina si el campo va vacio) -->
         <!--CELULAR_INICIO--><tr>
           <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0 0 6px 0;"><img src="{{IMG}}icon-cel-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="tel:{{CEL_HREF}}" style="color:#25346d !important;text-decoration:none;">{{CELULAR}}</a></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0 0 6px 0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;">{{CELULAR}}</td>
         </tr><!--CELULAR_FIN-->
 
         <!-- Direccion -->
@@ -371,7 +371,7 @@ const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing
         <!-- Sitio web -->
         <tr>
           <td width="22" valign="middle" bgcolor="#ffffff" style="width:22px;padding:0;"><img src="{{IMG}}icon-web-azul.png" width="14" height="14" alt="" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
-          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;"><a href="{{SITIO_HREF}}" style="color:#25346d !important;text-decoration:none;">{{SITIO}}</a></td>
+          <td valign="middle" bgcolor="#ffffff" style="background-color:#ffffff !important;padding:0;font-family:Calibri,Carlito,'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;mso-line-height-rule:exactly;color:#25346d !important;">{{SITIO}}</td>
         </tr>
 
       </table>
@@ -381,7 +381,7 @@ const PLANTILLA_CUARTA = `<table role="presentation" cellpadding="0" cellspacing
   <!-- BANNER VERDE: logo, slogan, certificaciones y personaje -->
   <tr>
     <td bgcolor="#a6c307" style="padding:0;font-size:0;line-height:0;background-color:#a6c307 !important;">
-      <a href="{{SITIO_HREF}}" style="text-decoration:none;"><img src="{{IMG}}banner-cuarta.jpg" width="600" height="160" alt="Litoprocess - impresos + soluciones | Te llevaras una gran impresion | Empaque, POP, Display, Impresos comerciales" style="display:block;width:600px;height:160px;border:0;outline:none;"></a>
+      <img src="{{IMG}}banner-cuarta.jpg" width="600" height="160" alt="Litoprocess - impresos + soluciones | Te llevaras una gran impresion | Empaque, POP, Display, Impresos comerciales" style="display:block;width:600px;height:160px;border:0;outline:none;">
     </td>
   </tr>
 </table>`;

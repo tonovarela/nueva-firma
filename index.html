@@ -94,25 +94,19 @@
     flex-direction: column;
     gap: 8px;
   }
-  button {
-    font-family: inherit;
+  .instrucciones {
+    margin: 0;
+    padding-left: 20px;
     font-size: 13px;
-    font-weight: 600;
-    padding: 10px 14px;
-    border-radius: 6px;
-    border: 1px solid transparent;
-    cursor: pointer;
+    line-height: 1.6;
   }
-  #btn-copiar {
-    background: var(--azul);
-    color: #fff;
-  }
-  #btn-copiar:hover { background: var(--navy); }
-
-  #estado {
-    min-height: 16px;
+  kbd {
+    font-family: inherit;
     font-size: 12px;
-    margin-top: 8px;
+    padding: 1px 5px;
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    background: #fff;
   }
 
   .preview-wrap h2 {
@@ -144,7 +138,7 @@
 
 <header>
   <h1>Generador de firma · Litoprocess</h1>
-  <p>Elige o edita los datos, revisa el preview y copia.
+  <p>Elige o edita los datos, revisa el preview y copia la firma.
   </p>
 </header>
 
@@ -178,8 +172,13 @@
     </div>
 
     <div class="acciones">
-      <button id="btn-copiar">Copiar firma (para pegar)</button>
-      <div id="estado"></div>
+      <label>Cómo copiar la firma</label>
+      <ol class="instrucciones">
+        <li>Haz clic dentro del preview.</li>
+        <li>Selecciona toda la firma con <kbd>Cmd</kbd>+<kbd>A</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows).</li>
+        <li>Cópiala con <kbd>Cmd</kbd>+<kbd>C</kbd> o <kbd>Ctrl</kbd>+<kbd>C</kbd>.</li>
+        <li>Pégala en la configuración de firma de tu correo con <kbd>Cmd</kbd>+<kbd>V</kbd> o <kbd>Ctrl</kbd>+<kbd>V</kbd>.</li>
+      </ol>
     </div>
   </section>
 
